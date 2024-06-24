@@ -11,7 +11,7 @@ const PostsList1 = () => {
             console.log(result)
             return result
         },
-        refetchInterval: 1000 * 10,
+        // refetchInterval: 1000 * 10,
     })
 
     // postsQuery.fetchStatus === 'fetching'

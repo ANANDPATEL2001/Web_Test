@@ -2,6 +2,7 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { Fragment } from 'react';
 
 import Home from './Pages/Home';
+import Error from './Pages/Error'
 import Test_React from './Test.React';
 import Component_Layout from './Components/Component.Layout';
 import Props_defaultProps from './Components/Props/props.defaultProps';
@@ -13,6 +14,12 @@ import Hooks_useMemo from './Components/Hooks/hooks.useMemo';
 import Hooks_useCallback from './Components/Hooks/UseCallback/hooks.useCallback'
 import React_Query from './Components/Hooks/TanStack Query/React.Query';
 import Posts from './Components/Hooks/TanStack Query/Posts';
+import Hooks_useContext from './Components/Hooks/UseContext/hooks.useContext';
+import ProfileSettings from './Pages/ProfileSettings';
+import AdminSettings from './Pages/AdminSettings';
+import New from './Components/New';
+import ReactTree from './Components/ReactTree';
+import VideoFrame from './Components/VideoFrame';
 
 function App() {
   return (
@@ -20,53 +27,63 @@ function App() {
       <Router>
         <Routes>
 
-          <Route path='/hooks/useState' Component={() =>
-            <Fragment>
-              <Hooks_useState />
-            </Fragment>
-          } />
+          <Route path='/hooks' >
+            <Route path='useState' Component={() =>
+              <Fragment>
+                <Hooks_useState />
+              </Fragment>
+            } />
 
-          <Route path='/hooks/useEffect' Component={() =>
-            <Fragment>
-              <Hooks_useEffect />
-            </Fragment>
-          } />
+            <Route path='useEffect' Component={() =>
+              <Fragment>
+                <Hooks_useEffect />
+              </Fragment>
+            } />
 
-          <Route path='/hooks/useRef' Component={() =>
-            <Fragment>
-              <Hooks_useRef />
-            </Fragment>
-          } />
+            <Route path='useRef' Component={() =>
+              <Fragment>
+                <Hooks_useRef />
+              </Fragment>
+            } />
 
-          <Route path='/hooks/useReducer' Component={() =>
-            <Fragment>
-              <Hooks_useReducer />
-            </Fragment>
-          } />
+            <Route path='useReducer' Component={() =>
+              <Fragment>
+                <Hooks_useReducer />
+              </Fragment>
+            } />
 
-          <Route path='/hooks/useMemo' Component={() =>
-            <Fragment>
-              <Hooks_useMemo />
-            </Fragment>
-          } />
+            <Route path='useMemo' Component={() =>
+              <Fragment>
+                <Hooks_useMemo />
+              </Fragment>
+            } />
 
-          <Route path='/hooks/useCallback' Component={() =>
-            <Fragment>
-              <Hooks_useCallback />
-            </Fragment>
-          } />
+            <Route path='useCallback' Component={() =>
+              <Fragment>
+                <Hooks_useCallback />
+              </Fragment>
+            } />
 
-          <Route path='/hooks/tanstackQuery' Component={() =>
-            <Fragment>
-              <React_Query />
-            </Fragment>
-          } />
+            <Route path='useContext' Component={() =>
+              <Fragment>
+                <Hooks_useContext />
+              </Fragment>
+            } />
 
-          <Route path='/hooks/tanstackQuery/posts' Component={() =>
-            <Fragment>
-              <Posts />
-            </Fragment>
-          } />
+            <Route path='tanstackQuery'>
+              <Route path='' Component={() =>
+                <Fragment>
+                  <React_Query />
+                </Fragment>
+              } />
+
+              <Route path='posts' Component={() =>
+                <Fragment>
+                  <Posts />
+                </Fragment>
+              } />
+            </Route>
+          </Route>
 
           <Route path='/props/defaultProps' Component={() =>
             <Fragment>
@@ -85,6 +102,24 @@ function App() {
               <Home />
             </Fragment>
           } />
+
+          <Route path='/settings'>
+            <Route path='profile' Component={() =>
+              <Fragment>
+                <ProfileSettings />
+              </Fragment>
+            } />
+
+            <Route path='admin' Component={() =>
+              <Fragment>
+                <AdminSettings />
+              </Fragment>
+            } />
+          </Route>
+
+          <Route path='/new' element={<New />}></Route>
+          <Route path='/react-tree' element={<ReactTree />}></Route>
+          <Route path='/test-video' element={<VideoFrame />}></Route>
 
         </Routes >
       </Router>
