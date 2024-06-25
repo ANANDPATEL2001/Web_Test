@@ -2,7 +2,7 @@ import React from 'react'
 
 const page = () => {
     return (
-        <div>pages-blog-page</div>
+        <div>pages {'->'} blog {'->'} page</div>
     )
 }
 

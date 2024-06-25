@@ -2,7 +2,7 @@ import React from 'react'
 
 const route = () => {
     return (
-        <div>app-route</div>
+        <div>app {'->'} app-about {'->'} route</div>
     )
 }
 
