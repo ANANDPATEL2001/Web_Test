@@ -9,13 +9,13 @@ const Hooks_useRef = () => {
     const count = useRef(0)
     const inputRef = useRef('')
 
-    const input_focus = () => {
+    const input_focus = (e) => {
+        e.preventDefault()
         inputRef.current.focus();
     }
 
     useEffect(() => {
         inputRef.current = name;
-
     }, [name])
 
 
@@ -32,15 +32,18 @@ const Hooks_useRef = () => {
         <>
 
             <div className=''></div>
-            <input type="text"
+            <input
+                className='bg-gray-200 rounded p-2 m-2'
+                placeholder='Type Your name !!'
+                type="text"
                 ref={inputRef}
                 name='name'
                 onChange={e => setName(e.target.value)} />
 
             <div>My name is {name}</div>
-            <div>My previous name is {inputRef.current}</div>
+            <div>My previous name was {inputRef.current}</div>
             <div>Component is rendered {count.current} times</div>
-            <button onClick={input_focus}>Focus</button>
+            <button onClick={(e) => input_focus(e)}>Focus</button>
         </>
     )
 }

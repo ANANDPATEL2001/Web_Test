@@ -1,6 +1,6 @@
 import React from 'react'
-import videoBg from "../Components/film.mp4"
-import newvideoBg from "../Components/videoplayback.mp4"
+// import videoBg from "../Components/film.mp4"
+import newvideoBg from "../Assets/videoplayback.mp4"
 
 const VideoFrame = () => {
     return (

@@ -1,7 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { Fragment } from 'react';
 
-import Home from './Pages/Home';
+import Home from './Pages/Home/Home';
 import Error from './Pages/Error'
 import Test_React from './Test.React';
 import Component_Layout from './Components/Component.Layout';
@@ -17,9 +17,10 @@ import Posts from './Components/Hooks/TanStack Query/Posts';
 import Hooks_useContext from './Components/Hooks/UseContext/hooks.useContext';
 import ProfileSettings from './Pages/ProfileSettings';
 import AdminSettings from './Pages/AdminSettings';
-import New from './Components/New';
 import ReactTree from './Components/ReactTree';
 import VideoFrame from './Components/VideoFrame';
+import MUIComponent from './Components/MUIComponent';
+import Debouncing from './Components/Advance Concepts/Debouncing';
 
 function App() {
   return (
@@ -117,7 +118,11 @@ function App() {
             } />
           </Route>
 
-          <Route path='/new' element={<New />}></Route>
+          <Route path='/advance'>
+            <Route path='debouncing' element={<Debouncing />} />
+          </Route>
+
+          <Route path='/MUIComponent' element={<MUIComponent />}></Route>
           <Route path='/react-tree' element={<ReactTree />}></Route>
           <Route path='/test-video' element={<VideoFrame />}></Route>
 

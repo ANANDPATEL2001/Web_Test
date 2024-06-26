@@ -1,12 +1,11 @@
 import { Box, Link, useMediaQuery, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 import { useState } from "react";
 
-const New = ({ isDashboard = false, view }) => {
-
+const MUIComponent = ({ isDashboard = false, view }) => {
     const [data, setData] = useState([])
+    const isNonMobile = useMediaQuery("(min-width: 720px)");
 
     fetch('https://jsonplaceholder.typicode.com/todos/1/posts')
         .then(response => response.json())
@@ -14,11 +13,6 @@ const New = ({ isDashboard = false, view }) => {
             console.log(json)
             setData(json)
         })
-
-    // console.log("Sales data is : ", data);
-
-    const isNonMobile = useMediaQuery("(min-width: 720px)");
-    //   console.log("IsNonMobile value is : ", isNonMobile)
 
     const columns = [
         {
@@ -70,4 +64,4 @@ const New = ({ isDashboard = false, view }) => {
     );
 };
 
-export default New;
+export default MUIComponent;

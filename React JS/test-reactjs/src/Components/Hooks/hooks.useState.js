@@ -36,11 +36,11 @@ const Hooks_useState = () => {
 
     return (
         <div>
-            <button onClick={(e) => setCount(decrement(count))}>-</button>
+            <button className='m-2 p-2 bg-gray-300 rounded' onClick={(e) => setCount(decrement(count))}>-</button>
             {/* <button onClick={decrementCount()}>-</button> */}
             {count}
             {/* <button onClick={incrementCount()}>+</button> */}
-            <button onClick={(e) => setCount(increment(count))}>+</button>
+            <button className='m-2 p-2 bg-gray-300 rounded' onClick={(e) => setCount(increment(count))}>+</button>
         </div>
     )
 }

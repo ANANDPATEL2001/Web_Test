@@ -1,5 +1,4 @@
 import React, { useReducer, useState } from 'react'
-
 import Todo from './Todo';
 
 export const ACTIONS = {
@@ -52,10 +51,10 @@ const new_todo = (name) => {
 
 export const Hooks_useReducer = () => {
     // 'Dispatch' is the function working on the state to modify it
-    // Here state may be any complex value or it's combination
+    // 'Reducer' is a function which contains your custom state logic
+    // Here 'state' is the initialState may be any complex value or it's combination
     const [state, dispatch] = useReducer(reducer, { count: 0 })
     const [todo, todo_dispatch] = useReducer(todo_reducer, [])
-
     const [name, setName] = useState('')
 
     const increment = () => {
@@ -80,15 +79,23 @@ export const Hooks_useReducer = () => {
 
     return (
         <>
-            <button className='btn btn-outline-primary' onClick={() => decrement()}>-</button>
+            <button className='bg-gray-200 m-2 p-2' onClick={() => decrement()}>-</button>
             {state.count}
-            <button className='btn btn-outline-primary' onClick={() => increment()}>+</button>
+            <button className='bg-gray-200 m-2 p-2' onClick={() => increment()}>+</button>
 
             <form onSubmit={handleSubmit}>
-                <input className='form-control my-2' type="text" value={name} placeholder='Enter Name here..' onChange={(e) => setName(e.target.value)} />
+                <input
+                    className='bg-gray-200 p-2 m-2'
+                    type="text"
+                    value={name}
+                    placeholder='Enter Name here..'
+                    onChange={(e) => setName(e.target.value)} />
             </form>
             {todo.map(todo => {
-                return <Todo key={todo.id} todo={todo} todo_dispatch={todo_dispatch} />
+                return <Todo
+                    key={todo.id}
+                    todo={todo}
+                    todo_dispatch={todo_dispatch} />
             })}
         </>
     )

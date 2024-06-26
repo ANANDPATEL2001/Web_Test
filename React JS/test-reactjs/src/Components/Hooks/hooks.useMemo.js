@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react'
-// 'useMemo' is the accronym for memorization which memorize the value and stores it in the cache memory
+// 'useMemo' is the accronym for memoization which memoize the value and stores it in the cache memory
 // 'useMemo' only computes/performs the function inside it when the value it refers to actually gets changed, not every time the component gets rendered
-// The 'useMemo' Hook only runs when one of its dependencies update
+// The 'useMemo' Hook only runs when one of its dependencies updates
 
 const Hooks_useMemo = () => {
     const [number, setNumber] = useState(0)
@@ -19,7 +19,6 @@ const Hooks_useMemo = () => {
         setNumber(parseInt(num))
     }
 
-
     // Here, 'useMemo' will cause 'slowFunction' to execute only when the 'number' get's changed every time the component get's rendered(i.e. even if 'themeStyle' get's changed)
     const doubleNumber = useMemo(() => {
         slowFunction(number)
@@ -27,11 +26,19 @@ const Hooks_useMemo = () => {
 
     return (
         <>
-            <input className='form-control my-2' type="number" value={number} onChange={(e) => change(e.target.value)} />
+            <input
+                className='form-control my-2'
+                type="number"
+                value={number}
+                onChange={(e) => change(e.target.value)} />
 
-            <button className='btn btn-outline-secondary' onClick={() => setDark(prevDark => !prevDark)} >Toggle</button>
+            <button
+                className='btn btn-outline-secondary'
+                onClick={() => setDark(prevDark => !prevDark)} >Toggle</button>
 
-            <div className="container my-2" style={themeStyle}>{doubleNumber}</div>
+            <div
+                className="container my-2"
+                style={themeStyle}>{doubleNumber}</div>
         </>
     )
 }

@@ -36,11 +36,11 @@ const Hooks_useEffect = () => {
     return (
         <>
             {windowWidth}
-            <div>
-                <button onClick={() => setResourceType('posts')}>posts</button>
-                <button onClick={() => setResourceType('users')}>users</button>
-                <button onClick={() => setResourceType('comments')}>comments</button>
-                <button onClick={() => setResourceType('photos')}>photos</button>
+            <div className='flex justify-between gap-3'>
+                <button className='m-2 p-2 bg-blue-400 rounded' onClick={() => setResourceType('posts')}>posts</button>
+                <button className='m-2 p-2 bg-blue-400 rounded' onClick={() => setResourceType('users')}>users</button>
+                <button className='m-2 p-2 bg-blue-400 rounded' onClick={() => setResourceType('comments')}>comments</button>
+                <button className='m-2 p-2 bg-blue-400 rounded' onClick={() => setResourceType('photos')}>photos</button>
             </div>
             {resourceType}
             {items.map(item => {
