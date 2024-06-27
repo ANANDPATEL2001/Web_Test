@@ -21,6 +21,7 @@ import ReactTree from './Components/ReactTree';
 import VideoFrame from './Components/VideoFrame';
 import MUIComponent from './Components/MUIComponent';
 import Debouncing from './Components/Advance Concepts/Debouncing';
+import Throttling from './Components/Advance Concepts/Throttling';
 
 function App() {
   return (
@@ -92,17 +93,8 @@ function App() {
             </Fragment>
           } />
 
-          <Route path='/testReact' Component={() =>
-            <Fragment>
-              <Test_React />
-            </Fragment>
-          } />
-
-          <Route path='/' Component={() =>
-            <Fragment>
-              <Home />
-            </Fragment>
-          } />
+          <Route path='/testReact' element={<Test_React />} />
+          <Route path='/' element={<Home />} />
 
           <Route path='/settings'>
             <Route path='profile' Component={() =>
@@ -120,6 +112,7 @@ function App() {
 
           <Route path='/advance'>
             <Route path='debouncing' element={<Debouncing />} />
+            <Route path='throttling' element={<Throttling />} />
           </Route>
 
           <Route path='/MUIComponent' element={<MUIComponent />}></Route>
